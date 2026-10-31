@@ -26,9 +26,9 @@ function vitePluginSpaFallback(): Plugin {
 // esta página se publica como sitio estático en GitHub Pages.
 const plugins = [react(), tailwindcss(), vitePluginSpaFallback()];
 
-// GitHub Pages de proyecto se sirve desde https://corponegroponte.github.io/corponegroponte/
-// Si algún día se conecta el dominio corponegroponte.com, exportar VITE_BASE=/ antes del build.
-const base = process.env.VITE_BASE ?? "/corponegroponte/";
+// El repositorio se llama corponegroponte.github.io, así que GitHub Pages lo sirve
+// como sitio de organización en la raíz: https://corponegroponte.github.io/
+const base = process.env.VITE_BASE ?? "/";
 
 export default defineConfig({
   base,

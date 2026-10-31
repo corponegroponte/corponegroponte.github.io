@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # Construye el sitio y lo publica en la rama gh-pages, que es la que sirve
-# GitHub Pages en https://corponegroponte.github.io/corponegroponte/
+# GitHub Pages en https://corponegroponte.github.io/
 #
 # Uso:
 #   bash scripts/deploy-gh-pages.sh              # usa el remoto "origin"

@@ -6,9 +6,8 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 
-// GitHub Pages sirve este sitio bajo /corponegroponte/, así que hay que decirle a
-// wouter cuál es el base path; si no, "/" nunca coincide y siempre renderiza el 404.
-// En dev BASE_URL es "/" y queda cadena vacía.
+// wouter necesita el base path de Vite; en la raíz de GitHub Pages y en dev
+// BASE_URL es "/" y queda cadena vacía.
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 function AppRoutes() {

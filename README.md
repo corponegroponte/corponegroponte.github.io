@@ -4,8 +4,8 @@ Sitio institucional de la Corporación Nicholas Negroponte (investigación, inno
 transición energética). SPA estática construida con **React 19 + Vite 7 + Tailwind CSS 4**
 y publicada en **GitHub Pages**.
 
-- **URL de producción:** https://corponegroponte.github.io/corponegroponte/
-- **Repositorio:** https://github.com/corponegroponte/corponegroponte
+- **URL de producción:** https://corponegroponte.github.io/
+- **Repositorio:** https://github.com/corponegroponte/corponegroponte.github.io
 
 ## Desarrollo local
 
@@ -45,12 +45,13 @@ fuente a "GitHub Actions", añadiendo un workflow que suba `dist/public`.
 
 ### Base path y dominio propio
 
-`vite.config.ts` fija `base` en `/corponegroponte/` porque GitHub Pages sirve este
-repositorio como *project page*. Si más adelante se conecta el dominio
-`corponegroponte.com`, hay que construir con:
+`vite.config.ts` fija `base` en `/` porque el repositorio se llama
+`corponegroponte.github.io` y GitHub Pages lo sirve como sitio de organización en la
+raíz. Si algún día se conecta el dominio `corponegroponte.com`, no hay que cambiar el
+base:
 
 ```bash
-VITE_BASE=/ pnpm build:client
+pnpm build:client
 ```
 
 y añadir el archivo `CNAME` con `corponegroponte.com` dentro de `client/public/`.
