@@ -849,7 +849,17 @@ export default function Home() {
               © {new Date().getFullYear()} Corporación Nicholas Negroponte. Todos los derechos reservados.
             </div>
             <div className="flex items-center gap-6">
-              <span>Sitio oficial de referencia: corponegroponte.com</span>
+              <span>
+                Desarrollado por{" "}
+                <a
+                  href="https://github.com/riverosmejia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#B9ABA8] hover:text-[#87BF34] transition-colors"
+                >
+                  Miguel Riveros
+                </a>
+              </span>
               <span className="hidden md:inline">·</span>
               <span className="text-[#B9ABA8]">Transición Energética & Ciencia</span>
             </div>
