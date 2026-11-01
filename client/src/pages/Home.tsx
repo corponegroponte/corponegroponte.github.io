@@ -83,17 +83,30 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#FFFFFF] text-[#2E2C2A] flex flex-col font-sans selection:bg-[#87BF34] selection:text-[#262626]">
-      {!imagesReady && (
-        <div
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-4 bg-[#FFFFFF]"
-          role="status"
-          aria-live="polite"
-        >
-          <img src="/favicon.png" alt="" className="w-14 h-14 animate-pulse" />
-          <span className="text-[13px] text-[#8A807B]">Cargando…</span>
-        </div>
+      <div
+        className={`fixed inset-0 z-[100] flex flex-col items-center justify-center gap-4 bg-[#FFFFFF] transition-opacity duration-700 ease-out ${
+          imagesReady ? "pointer-events-none opacity-0" : "opacity-100"
+        }`}
+        role="status"
+        aria-live="polite"
+        aria-hidden={imagesReady}
+      >
+        <img src="/favicon.png" alt="" className="w-14 h-14 animate-pulse" />
+        <span className="text-[13px] text-[#8A807B]">Cargando…</span>
+      </div>
+
+      {imagesReady && (
+        <>
+          <div className="reveal-glow" aria-hidden="true" />
+          <div className="reveal-sweep" aria-hidden="true" />
+        </>
       )}
 
+      <div
+        className={`flex flex-1 flex-col transition-[opacity,transform] duration-[900ms] ease-out ${
+          imagesReady ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
+        }`}
+      >
       {/* 1. NAVEGACIÓN PRIMARIA (primary-nav) */}
       <header className="sticky top-0 z-50 bg-[#262626] border-b border-[#333333] h-16 transition-all duration-200">
         <div className="container h-full flex items-center justify-between">
@@ -954,6 +967,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      </div>
     </div>
   );
 }

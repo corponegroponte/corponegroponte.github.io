@@ -126,3 +126,67 @@
     }
   }
 }
+
+/* Revelado de entrada: barrido de luz + brillo cálido al terminar la precarga */
+@keyframes reveal-sweep {
+  0% {
+    transform: translate3d(-120%, 0, 0) skewX(-14deg);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate3d(120%, 0, 0) skewX(-14deg);
+    opacity: 0;
+  }
+}
+
+@keyframes reveal-glow {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.reveal-sweep {
+  position: fixed;
+  inset: -25%;
+  z-index: 90;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 32%,
+    rgba(255, 255, 255, 0.85) 48%,
+    rgba(135, 191, 52, 0.12) 52%,
+    transparent 68%
+  );
+  animation: reveal-sweep 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+  will-change: transform, opacity;
+}
+
+.reveal-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 89;
+  pointer-events: none;
+  background: radial-gradient(
+    65% 55% at 50% 0%,
+    rgba(135, 191, 52, 0.16),
+    rgba(255, 255, 255, 0) 70%
+  );
+  animation: reveal-glow 1.4s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-sweep,
+  .reveal-glow {
+    animation: none;
+    opacity: 0;
+  }
+}
