@@ -933,6 +933,15 @@ export default function Home() {
                   corponegroponte.org
                 </a>
               </p>
+              <p>
+                Representante legal:{" "}
+                <a
+                  href="mailto:caromejiaopro@gmail.com"
+                  className="hover:text-[#87BF34] transition-colors"
+                >
+                  caromejiaopro@gmail.com
+                </a>
+              </p>
               <p>corponegroponte.com es un dominio de la misma organización.</p>
             </address>
           </div>
