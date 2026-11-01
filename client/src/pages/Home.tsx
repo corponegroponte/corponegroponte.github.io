@@ -1,4 +1,4 @@
-import { useState, useId } from "react";
+import { useEffect, useState, useId } from "react";
 import { 
   Sun, 
   Code, 
@@ -19,10 +19,10 @@ import { toast } from "sonner";
 
 // Imágenes reales de la Corporación, empaquetadas localmente en el bundle.
 // Antes apuntaban a /manus-storage/*.jpg, un proxy disponible solo dentro de Manus.
-import solarParkImage from "@/assets/solar-park.jpg";
-import codingEducationImage from "@/assets/coding-education.jpg";
-import projectAdvisoryImage from "@/assets/project-advisory.jpg";
-import youthScienceImage from "@/assets/youth-science.jpg";
+import solarParkImage from "@/assets/solar-park.webp";
+import codingEducationImage from "@/assets/coding-education.webp";
+import projectAdvisoryImage from "@/assets/project-advisory.webp";
+import youthScienceImage from "@/assets/youth-science.webp";
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -33,6 +33,38 @@ export default function Home() {
     empresa: "",
     asunto: "",
   });
+
+  const [imagesReady, setImagesReady] = useState(false);
+
+  // La página espera a que estén cargadas todas las imágenes antes de mostrarse.
+  useEffect(() => {
+    const sources = [
+      "/favicon.png",
+      solarParkImage,
+      codingEducationImage,
+      projectAdvisoryImage,
+      youthScienceImage,
+    ];
+    let cancelled = false;
+
+    Promise.all(
+      sources.map(
+        (src) =>
+          new Promise<void>((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve();
+            img.onerror = () => resolve();
+            img.src = src;
+          }),
+      ),
+    ).then(() => {
+      if (!cancelled) setImagesReady(true);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const emailId = useId();
   const nombreId = useId();
@@ -51,13 +83,28 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#FFFFFF] text-[#2E2C2A] flex flex-col font-sans selection:bg-[#87BF34] selection:text-[#262626]">
+      {!imagesReady && (
+        <div
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-4 bg-[#FFFFFF]"
+          role="status"
+          aria-live="polite"
+        >
+          <img src="/favicon.png" alt="" className="w-14 h-14 animate-pulse" />
+          <span className="text-[13px] text-[#8A807B]">Cargando…</span>
+        </div>
+      )}
+
       {/* 1. NAVEGACIÓN PRIMARIA (primary-nav) */}
       <header className="sticky top-0 z-50 bg-[#262626] border-b border-[#333333] h-16 transition-all duration-200">
         <div className="container h-full flex items-center justify-between">
           {/* Brand Wordmark & Isotipo */}
           <a href="#" className="flex items-center gap-3 group text-decoration-none">
-            <div className="w-8 h-8 bg-[#87BF34] flex items-center justify-center font-bold text-[#262626] text-lg rounded-[2px] transition-transform duration-150 group-hover:scale-95">
-              N
+            <div className="w-8 h-8 flex items-center justify-center transition-transform duration-150 group-hover:scale-95">
+              <img
+                src="/favicon.png"
+                alt="Corporación Nicholas Negroponte"
+                className="w-8 h-8 object-contain"
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-[#FFFFFF] font-bold text-[15px] sm:text-[16px] tracking-tight leading-tight uppercase">
@@ -772,9 +819,11 @@ export default function Home() {
             {/* Columna 1: Identidad Corporativa */}
             <div className="md:col-span-2 space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-7 h-7 bg-[#87BF34] flex items-center justify-center font-bold text-[#262626] text-base rounded-[2px]">
-                  N
-                </div>
+                <img
+                  src="/favicon.png"
+                  alt="Corporación Nicholas Negroponte"
+                  className="w-7 h-7 object-contain"
+                />
                 <span className="text-[#FFFFFF] font-bold text-[17px] tracking-tight uppercase">
                   Corporación Nicholas Negroponte
                 </span>
