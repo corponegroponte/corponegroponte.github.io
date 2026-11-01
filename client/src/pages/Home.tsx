@@ -843,6 +843,38 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Información legal: transparencia para Google for Nonprofits */}
+          <div className="mt-12 pt-8 border-t border-[#333333] text-[12px] leading-relaxed text-[#B9ABA8]">
+            <h4 className="text-[#FFFFFF] text-[13px] font-bold uppercase tracking-wider mb-3">
+              Información legal
+            </h4>
+            <address className="not-italic space-y-1">
+              <p>
+                Corporación para la Investigación, Innovación, Desarrollo y Divulgación
+                Científica — Nicholas Negroponte. Entidad sin ánimo de lucro.
+              </p>
+              <p>NIT: 901.275.658-4 · Personería jurídica: abril de 2019</p>
+              <p>Envigado, Antioquia, Colombia</p>
+              <p>
+                Correo:{" "}
+                <a
+                  href="mailto:riverosmejiamiguel@gmail.com"
+                  className="hover:text-[#87BF34] transition-colors"
+                >
+                  riverosmejiamiguel@gmail.com
+                </a>
+                {" · "}Sitio oficial:{" "}
+                <a
+                  href="https://corponegroponte.org"
+                  className="hover:text-[#87BF34] transition-colors"
+                >
+                  corponegroponte.org
+                </a>
+              </p>
+              <p>corponegroponte.com es un dominio de la misma organización.</p>
+            </address>
+          </div>
+
           {/* Bottom Bar: Copyright & Declaración */}
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[13px] text-[#8A807B] gap-4">
             <div>
