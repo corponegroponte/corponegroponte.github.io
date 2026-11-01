@@ -907,43 +907,63 @@ export default function Home() {
 
           {/* Información legal: transparencia para Google for Nonprofits */}
           <div className="mt-12 pt-8 border-t border-[#333333] text-[12px] leading-relaxed text-[#B9ABA8]">
-            <h4 className="text-[#FFFFFF] text-[13px] font-bold uppercase tracking-wider mb-3">
+            <h4 className="text-[#FFFFFF] text-[13px] font-bold uppercase tracking-wider mb-4">
               Información legal
             </h4>
-            <address className="not-italic space-y-1">
-              <p>
-                Corporación para la Investigación, Innovación, Desarrollo y Divulgación
-                Científica — Nicholas Negroponte. Entidad sin ánimo de lucro.
-              </p>
-              <p>NIT: 901.275.658-4 · Personería jurídica: abril de 2019</p>
-              <p>Envigado, Antioquia, Colombia</p>
-              <p>
-                Correo:{" "}
-                <a
-                  href="mailto:riverosmejiamiguel@gmail.com"
-                  className="hover:text-[#87BF34] transition-colors"
-                >
-                  riverosmejiamiguel@gmail.com
-                </a>
-                {" · "}Sitio oficial:{" "}
-                <a
-                  href="https://corponegroponte.org"
-                  className="hover:text-[#87BF34] transition-colors"
-                >
-                  corponegroponte.org
-                </a>
-              </p>
-              <p>
-                Representante legal:{" "}
-                <a
-                  href="mailto:caromejiaopro@gmail.com"
-                  className="hover:text-[#87BF34] transition-colors"
-                >
-                  caromejiaopro@gmail.com
-                </a>
-              </p>
-              <p>corponegroponte.com es un dominio de la misma organización.</p>
-            </address>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+              <div className="space-y-1">
+                <p className="text-[#FFFFFF] text-[11px] font-bold uppercase tracking-wider">
+                  Entidad
+                </p>
+                <p>
+                  Corporación para la Investigación, Innovación, Desarrollo y Divulgación
+                  Científica — Nicholas Negroponte.
+                </p>
+                <p>Entidad sin ánimo de lucro.</p>
+              </div>
+
+              <div className="space-y-1">
+                <p className="text-[#FFFFFF] text-[11px] font-bold uppercase tracking-wider">
+                  Datos legales
+                </p>
+                <p>NIT: 901.275.658-4</p>
+                <p>Personería jurídica: abril de 2019</p>
+                <p>Envigado, Antioquia, Colombia</p>
+              </div>
+
+              <div className="space-y-1">
+                <p className="text-[#FFFFFF] text-[11px] font-bold uppercase tracking-wider">
+                  Contacto
+                </p>
+                <p>
+                  Desarrollador:{" "}
+                  <a
+                    href="mailto:riverosmejiamiguel@gmail.com"
+                    className="hover:text-[#87BF34] transition-colors"
+                  >
+                    riverosmejiamiguel@gmail.com
+                  </a>
+                </p>
+                <p>
+                  Representante legal:{" "}
+                  <a
+                    href="mailto:caromejiaopro@gmail.com"
+                    className="hover:text-[#87BF34] transition-colors"
+                  >
+                    caromejiaopro@gmail.com
+                  </a>
+                </p>
+                <p>
+                  Sitio oficial:{" "}
+                  <a
+                    href="https://corponegroponte.org"
+                    className="hover:text-[#87BF34] transition-colors"
+                  >
+                    corponegroponte.org
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Bottom Bar: Copyright & Declaración */}
@@ -961,13 +981,6 @@ export default function Home() {
                   className="text-[#B9ABA8] hover:text-[#87BF34] transition-colors"
                 >
                   Miguel Riveros
-                </a>{" "}
-                ·{" "}
-                <a
-                  href="mailto:riverosmejiamiguel@gmail.com"
-                  className="text-[#B9ABA8] hover:text-[#87BF34] transition-colors"
-                >
-                  riverosmejiamiguel@gmail.com
                 </a>
               </span>
               <span className="hidden md:inline">·</span>
