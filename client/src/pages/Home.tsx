@@ -858,6 +858,13 @@ export default function Home() {
                   className="text-[#B9ABA8] hover:text-[#87BF34] transition-colors"
                 >
                   Miguel Riveros
+                </a>{" "}
+                ·{" "}
+                <a
+                  href="mailto:riverosmejiamiguel@gmail.com"
+                  className="text-[#B9ABA8] hover:text-[#87BF34] transition-colors"
+                >
+                  riverosmejiamiguel@gmail.com
                 </a>
               </span>
               <span className="hidden md:inline">·</span>
