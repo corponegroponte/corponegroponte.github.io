@@ -4,7 +4,7 @@ Sitio institucional de la Corporación Nicholas Negroponte (investigación, inno
 transición energética). SPA estática construida con **React 19 + Vite 7 + Tailwind CSS 4**
 y publicada en **GitHub Pages**.
 
-- **URL de producción:** https://corponegroponte.github.io/
+- **URL de producción:** https://corponegroponte.org/
 - **Repositorio:** https://github.com/corponegroponte/corponegroponte.github.io
 
 ## Desarrollo local
@@ -43,20 +43,21 @@ Si en algún momento quieres automatizarlo con Actions, hay que autorizar el sco
 (`gh auth refresh -h github.com -s workflow`) y cambiar en *Settings → Pages* la
 fuente a "GitHub Actions", añadiendo un workflow que suba `dist/public`.
 
-### Base path y dominio propio
+### Dominio propio
 
-`vite.config.ts` fija `base` en `/` porque el repositorio se llama
-`corponegroponte.github.io` y GitHub Pages lo sirve como sitio de organización en la
-raíz. Si algún día se conecta el dominio `corponegroponte.com`, no hay que cambiar el
-base:
+El sitio se sirve en `https://corponegroponte.org/`. El dominio se compró en Cloudflare
+Registrar y se apunta a GitHub Pages con estos registros DNS (proxy desactivado):
 
-```bash
-pnpm build:client
+```
+A     @     185.199.108.153
+A     @     185.199.109.153
+A     @     185.199.110.153
+A     @     185.199.111.153
+CNAME www   corponegroponte.github.io
 ```
 
-y añadir el archivo `CNAME` con `corponegroponte.com` dentro de `client/public/`.
-Ojo: ese dominio hoy lo sirve otro repositorio (`riverosmejia/corpo-web`); conectar
-este repo implica liberarlo antes en el otro.
+`client/public/CNAME` contiene el dominio y el build lo copia a `dist/public`, así el
+deploy no borra la configuración de Pages. `vite.config.ts` mantiene `base: "/"`.
 
 ## Estructura
 
